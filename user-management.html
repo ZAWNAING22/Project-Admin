@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Admin Panel</div>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="user-management.html">User Management</a></li>
+            <li><a href="entity-management.html">Entity Management</a></li>
+            <li><a href="announcement.html">Announcements</a></li>
+            <li><a href="messages.html">Messages</a></li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <h2>Register User</h2>
+        <form action="php/register_user.php" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Register</button>
+        </form>
+        <h2>Update User</h2>
+        <form action="php/update_user.php" method="post">
+            <label for="user_id">User ID</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Update</button>
+        </form>
+        <h2>Delete User</h2>
+        <form action="php/delete_user.php" method="post">
+            <label for="user_id">User ID</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+</body>
+</html>

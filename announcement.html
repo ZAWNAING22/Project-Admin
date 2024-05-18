@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Admin Panel</div>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="user-management.html">User Management</a></li>
+            <li><a href="entity-management.html">Entity Management</a></li>
+            <li><a href="announcement.html">Announcements</a></li>
+            <li><a href="messages.html">Messages</a></li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <h2>Add Announcement</h2>
+        <form action="php/add_announcement.php" method="post">
+            <label for="announcement_title">Title</label>
+            <input type="text" id="announcement_title" name="announcement_title" required>
+            <label for="announcement_content">Content</label>
+            <textarea id="announcement_content" name="announcement_content" required></textarea>
+            <button type="submit">Add Announcement</button>
+        </form>
+        <h2>Existing Announcements</h2>
+        <div id="announcement-list">
+            <!-- Use JavaScript to dynamically fetch and display announcements from get_announcements.php -->
+        </div>
+    </div>
+    <script>
+        // Fetch announcements
+        fetch('php/get_announcements.php')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('announcement-list');
+                data.forEach(announcement => {
+                    const item = document.createElement('div');
+                    item.innerHTML = `<h3>${announcement.title}</h3><p>${announcement.content}</p>`;
+                    list.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>

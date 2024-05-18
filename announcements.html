@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">User Panel</div>
+    </nav>
+    <div class="announcement-container">
+        <h2>Announcements</h2>
+        <div id="announcement-list">
+            <!-- Use JavaScript to dynamically fetch and display announcements from get_announcements.php -->
+        </div>
+    </div>
+    <script>
+        // Fetch announcements
+        fetch('php/get_announcements.php')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('announcement-list');
+                data.forEach(announcement => {
+                    const item = document.createElement('div');
+                    item.innerHTML = `<h3>${announcement.title}</h3><p>${announcement.content}</p>`;
+                    list.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>

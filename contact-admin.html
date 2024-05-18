@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">User Panel</div>
+    </nav>
+    <div class="form-container">
+        <h2>Contact Admin</h2>
+        <form action="php/send_message.php" method="post">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+            <label for="message_content">Message</label>
+            <textarea id="message_content" name="message_content" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>

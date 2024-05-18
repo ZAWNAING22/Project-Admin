@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Admin Panel</div>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="user-management.html">User Management</a></li>
+            <li><a href="entity-management.html">Entity Management</a></li>
+            <li><a href="announcement.html">Announcements</a></li>
+            <li><a href="messages.html">Messages</a></li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <h2>Messages</h2>
+        <div id="message-list">
+            <!-- Use JavaScript to dynamically fetch and display messages from get_messages.php -->
+        </div>
+        <h2>Respond to Message</h2>
+        <form action="php/respond_message.php" method="post">
+            <label for="message_id">Message ID</label>
+            <input type="text" id="message_id" name="message_id" required>
+            <label for="response_content">Response</label>
+            <textarea id="response_content" name="response_content" required></textarea>
+            <button type="submit">Respond</button>
+        </form>
+    </div>
+    <script>
+        // Fetch messages
+        fetch('php/get_messages.php')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('message-list');
+                data.forEach(message => {
+                    const item = document.createElement('div');
+                    item.innerHTML = `<p><strong>Message ID:</strong> ${message.id}</p><p>${message.content}</p>`;
+                    list.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>

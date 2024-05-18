@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Admin Panel</div>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="user-management.html">User Management</a></li>
+            <li><a href="entity-management.html">Entity Management</a></li>
+            <li><a href="announcement.html">Announcements</a></li>
+            <li><a href="messages.html">Messages</a></li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <h2>Manage Entities</h2>
+        <form action="php/manage_entity.php" method="post">
+            <label for="entity_name">Entity Name</label>
+            <input type="text" id="entity_name" name="entity_name" required>
+            <label for="entity_type">Entity Type</label>
+            <input type="text" id="entity_type" name="entity_type" required>
+            <label for="action">Action</label>
+            <select id="action" name="action">
+                <option value="register">Register</option>
+                <option value="update">Update</option>
+                <option value="delete">Delete</option>
+            </select>
+            <input type="hidden" id="entity_id" name="entity_id">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
